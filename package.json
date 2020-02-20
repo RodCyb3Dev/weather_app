@@ -1,0 +1,45 @@
+{
+  "name": "weatherapp-backend",
+  "version": "0.0.2",
+  "description": "Weatherapp exercise backend",
+  "author": "Marko Klemetti <marko.klemetti@gmail.com>",
+  "license": "UNLICENSED",
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test-lint": "eslint --ignore-pattern \"build\" --ignore-path .gitignore .",
+    "server": "cd server && node index.js",
+    "client": " cd client && npm run start",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "precommit": "pretty-quick --staged"
+  },
+  "dependencies": {
+    "concurrently": "^3.5.1",
+    "es6-promise": "^4.2.4",
+    "express": "^4.16.3",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "fetch-mock": "^6.3.0",
+    "gh-pages": "^1.1.0",
+    "isomorphic-fetch": "^2.2.1",
+    "prettier": "^1.11.1",
+    "pretty-quick": "^1.4.1",
+    "node-fetch": "^2.1.2",
+    "nodemon": "^1.17.4",
+    "react-router-dom": "^4.2.2",
+    "redux-saga": "^0.16.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "eslint": "^3.19.0",
+    "eslint-config-strongloop": "^2.1.0",
+    "eslint-plugin-react": "^7.8.2",
+    "module-alias": "2.0.6"
+  },
+  "_moduleAliases": {
+    "root": ".",
+    "routes": "./server/routes",
+    "server": "./server"
+  }
+}
