@@ -11,6 +11,8 @@ import store from './store/index';
 import { App, ErrorDisplay } from './views/Components/index';
 import { Home, CurrentWeather } from './views/Containers/index';
 
+import registerServiceWorker from './registerServiceWorker';
+
 ReactDOM.render(
   <Provider store={store}>
     <Router>
@@ -23,4 +25,4 @@ ReactDOM.render(
   </Provider>
   , document.getElementById('root'));
 
-// registerServiceWorker(); // eslint-disable-line no-undef
+registerServiceWorker();
