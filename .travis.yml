@@ -1,0 +1,31 @@
+sudo: required
+services:
+  - docker
+before_install:
+  - docker build -t roddoc07/weatherapp -f ./client/Dockerfile.dev ./client
+script:
+  - docker run -e CI=true roddoc07/weatherapp npm run test -- coverage
+after_success:
+  - docker build -t roddoc07/multi-nginx ./nginx
+  - docker build -t roddoc07/multi-server ./server
+  - docker build -t roddoc07/multi-client ./client
+  # Login to the docker CLI
+  - echo “$DOCKER_PASSWORD” | docker login -u “$DOCKER_ID” - password-stdin
+  # Take these images and push them to Docker Hub
+  - docker push roddoc07/multi-nginx
+  - docker push roddoc07/multi-server
+  - docker push roddoc07/multi-client
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "weatherapp"
+  env: "Weatherapp-env"
+  bucket_name: "elasticbeanstalk-us-east-2-775267258898"
+  bucket_path: "weatherapp"
+  on:
+    branch: master
+  access_key_id:
+    secure: "$AWS_ACCESS_KEY"
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"

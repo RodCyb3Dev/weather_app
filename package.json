@@ -4,30 +4,41 @@
   "description": "Weatherapp exercise backend",
   "author": "Marko Klemetti <marko.klemetti@gmail.com>",
   "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rodcode47/weather_app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Rodcode47/weather_app/issues"
+  },
+  "homepage": "https://github.com/Rodcode47/weather_app#readme",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "test-lint": "eslint --ignore-pattern \"build\" --ignore-path .gitignore .",
     "start": "cd server && node index.js",
-    "client": " cd client && npm run start",
+    "client": "cd client && npm run start",
     "dev": "concurrently --kill-others-on-fail \"npm run start\" \"npm run client\"",
     "precommit": "pretty-quick --staged"
   },
   "dependencies": {
     "concurrently": "^5.1.0",
+    "cors": "^2.8.5",
+    "enzyme": "^3.11.0",
     "es6-promise": "^4.2.8",
     "express": "^4.17.1",
-    "enzyme": "^3.11.0",
     "fetch-mock": "^9.0.0-beta.2",
     "gh-pages": "^2.2.0",
     "husky": "^4.2.3",
-    "nock": "^9.2.3",
     "isomorphic-fetch": "^2.2.1",
-    "prettier": "^1.19.1",
-    "pretty-quick": "^2.0.1",
+    "nock": "^9.2.3",
     "node-fetch": "^2.6.0",
     "nodemon": "^2.0.2",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1",
+    "react": "^16.12.0",
+    "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
     "redux-saga": "^1.1.3"
   },
@@ -42,5 +53,8 @@
     "root": ".",
     "routes": "./server/routes",
     "server": "./server"
+  },
+  "optionalDependencies": {
+    "fsevents": "^2.1.2"
   }
 }
