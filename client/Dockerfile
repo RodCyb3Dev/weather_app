@@ -1,4 +1,4 @@
-FROM node:13.7.0
+FROM node:13.7.0 as builder
 
 # Create app directory
 WORKDIR /app
@@ -11,14 +11,10 @@ RUN npm install
 COPY ./ ./
 
 # Create client build;
-RUN npm run build
-
-# Start the app
-#CMD [ "npm", "build", "start" ]
-#CMD [ "/bin/bash" ]
+RUN npm run-script build
 
 FROM nginx
 # Expose ports
-EXPOSE 8000
+EXPOSE 3000
 COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
 COPY --from=builder /app/build /usr/share/nginx/html
