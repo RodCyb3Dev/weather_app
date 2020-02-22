@@ -5,6 +5,7 @@ npm-debug.log*
 
 client/node_modules
 client/package-lock.json
+client/Dockerfile.dev
 
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 build/Release
@@ -13,6 +14,7 @@ build/Release
 node_modules/
 
 server/package-lock.json
+server/Dockerfile.dev
 
 nginx/Dockerfile.dev
 
