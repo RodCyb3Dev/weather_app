@@ -11,5 +11,5 @@ RUN npm install && npm i fsevents@latest -f --save-optional
 COPY ./ ./
 
 # Start the app
-CMD [ "npm", "run", "dev" ]
+CMD ["npm", "run", "start"]
 #CMD [ "/bin/bash" ]
