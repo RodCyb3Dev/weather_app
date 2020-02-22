@@ -7,8 +7,8 @@ services:
 before_install:
   - docker build -t roddoc07/weatherapp -f ./client/Dockerfile ./client
 #script:
-  - docker run -e CI=true roddoc07/weatherapp npm run test -- -- coverage
-  #- docker run roddoc07/weatherapp npm run test -- --coverage
+  #- docker run -e CI=true roddoc07/weatherapp npm run test -- --coverage
+  - docker run roddoc07/weatherapp npm run test -- --coverage
 after_success:
   - docker build -t roddoc07/multi-nginx ./nginx
   - docker build -t roddoc07/multi-server ./server
