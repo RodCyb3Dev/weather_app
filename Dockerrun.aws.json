@@ -2,13 +2,6 @@
   "AWSEBDockerrunVersion": 2,
   "containerDefinitions": [
     {
-      "name": "approot",
-      "image": "docker.io/roddoc07/multi-approot",
-      "hostname": "approot",
-      "essential": false,
-      "memory": 128
-    },
-    {
       "name": "client",
       "image": "docker.io/roddoc07/multi-client",
       "hostname": "client",
