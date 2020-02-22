@@ -1,0 +1,16 @@
+FROM node:13.7.0
+
+# Create working directory
+WORKDIR /app
+
+# Install app dependencies
+COPY ./ ./package.json
+
+RUN npm install && npm i fsevents@latest -f --save-optional
+
+# Copy from current dir to container
+COPY . .
+
+# Start the app
+CMD [ "npm", "run", "dev" ]
+#CMD [ "/bin/bash" ]

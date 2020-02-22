@@ -1,0 +1,27 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+client/node_modules
+client/package-lock.json
+
+# Compiled binary addons (https://nodejs.org/api/addons.html)
+build/Release
+
+# Dependency directories
+node_modules/
+
+server/package-lock.json
+
+nginx/Dockerfile.dev
+
+# Serverless directories
+.serverless/
+
+# dotenv environment variables file
+.env
+.env.test
+
+# Optional eslint cache
+.eslintcache
