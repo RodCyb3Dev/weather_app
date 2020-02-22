@@ -1,4 +1,4 @@
-version: '3.6' # aim to deploy in swarm
+version: '3.6'
 services:
   api:
     build:
