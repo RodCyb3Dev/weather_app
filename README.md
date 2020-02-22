@@ -17,16 +17,9 @@ Luckily we now have [docker compose](https://docs.docker.com/compose/) saving us
 * Make changes, commit them, and push them in your own repository.
 * Send us the url where to find the code.
 
-### Via tar-package
-
-* Clone this repository.
-* Make changes and **commit them**.
-* Create a **.tgz** -package including the **.git**-directory, but excluding the **node_modules**-directories.
-* Send us the archive.
-
 ## Exercises
 
-Here are some things in different categories that you can do to make the app better. Before starting you need to get yourself an API key to make queries in the [openweathermap](http://openweathermap.org/). You can run the app locally using `npm i && npm start`.
+Here are some things in different categories that you can do to make the app better. Before starting you need to get yourself an API key to make queries in the [openweathermap](http://openweathermap.org/). You can run the app locally **cd client** in dir then run `npm i && npm start` and the in the root dir run `npm i && npm run dev`.
 
 ### Docker
 
@@ -38,27 +31,26 @@ Here are some things in different categories that you can do to make the app bet
 
 * The developers are still keen to run the app and its pipeline on their own computers. Share the development files for the container by using volumes, and make sure the containers are started with a command enabling hot reload.
 
-### WeatherApp-api - Dockerized
+### Weatherapp - Dockerized
 Final result - uses Docker
 
-1. run `npm install`
-2. Make sure you have docker installed and running on your computer
-3. Run `docker-compose up` ( you may have to run `docker-compose up --build` for the first setup phase)
-4. You must add your own API key in the `docker-compose.yml` file under environment to connect to OpenWeatherMap API.
-5. You will also need to update Line 9 in backend/src/index.js to your client app port (i.e. 3001)
+1. Make sure you have docker installed and running on your computer
+2. Run `docker-compose up` ( you may have to run `docker-compose up --build` for the first setup phase)
+3. You must add your own API key in the `docker-compose.yml` file under environment to connect to OpenWeatherMap API.
+4. You will also need to update Line 9 in backend/src/index.js to your client app port (i.e. 3001)
 
 **Important:** if you are getting conflict erros, you should run `docker stop <container name>` that is already running in the background.
 **Important:** if you are getting other erros, you should run `docker-compose down` to bring everything down, and start over.
 
 To access backend's bash:
-Run `docker-compose exec weatherapp-backend bash`
+Run `docker-compose exec <container name> bash`
 
 To access frontend's bash:
-Run `docker-compose exec weatherapp-frontend bash`
+Run `docker-compose exec <container name> bash`
 
 You can grab OpenWeatherMap API key [here](http://openweathermap.org/)
 
-### Node and React development
+### Node Express and React development *The app has been re-designed.
 
 *Node and React applications are highly popular technologies. Understanding them will give you an advantage in front- and back-end development projects.*
 
@@ -76,37 +68,19 @@ You can grab OpenWeatherMap API key [here](http://openweathermap.org/)
 
 * Create [Robot Framework](http://robotframework.org/) integration tests. Hint: Start by creating a third container that gives expected weather data and direct the backend queries there by redefining the **MAP_ENDPOINT**.
 
-### Cloud
+* I went with [CircleCI](https://circleci.com) and used [Travis CI](https://travis-ci.org) that would test.
+
+### Cloud AWS
 
 *The biggest trend of recent times is developing, deploying and hosting your applications in cloud. Knowing cloud -related technologies is essential for modern IT specialists.*
 
-* Set up the weather service in a free cloud hosting service, e.g. [AWS](https://aws.amazon.com/free/) or [Google Cloud](https://cloud.google.com/free/).
+* The weather app is deployed to a cloud hosting service [AWS working link](https://aws.amazon.com/free/) or [Link to push app after all tests have passed](http://weatherapp-env.h8cxvgifqe.us-east-2.elasticbeanstalk.com).
 
-### Ansible
+### Travis CI & CircleCI
 
 *Automating deployment processes saves a lot of valuable time and reduces chances of costly errors. Infrastructure as Code removes manual steps and allows people to concentrate on core activities.*
 
-* Write [ansible](http://docs.ansible.com/ansible/intro.html) playbooks for installing [docker](https://www.docker.com/) and the app itself.
+* I used [Travis CI](https://travis-ci.org) that would only deploy once all the checks have passed. It will run docker-compose up --build and also create a build folder for the frontend.
 
 # robofriends-ci
 Continuous Integration for weatherapp with CircleCI
-
-### Documentation
-
-*Good documentation benefits everyone.*
-
-* Remember to update the README
-
-* Use descriptive names and add comments in the code when necessary
-
-
-…or create a new repository on the command line
-echo "# weather_app" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git remote add origin git@github.com:Rodcode47/weather_app.git
-git push -u origin master
-…or push an existing repository from the command line
-git remote add origin git@github.com:Rodcode47/weather_app.git
-git push -u origin master
