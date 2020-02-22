@@ -36,4 +36,3 @@ workflows:
       - test:
           requires:
             - server-test
-            - client-test
