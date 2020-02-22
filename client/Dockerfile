@@ -11,7 +11,7 @@ RUN npm install
 COPY ./ ./
 
 # Create client build;
-RUN npm run-script build
+RUN npm run build
 
 FROM nginx
 # Expose ports
