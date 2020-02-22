@@ -18,4 +18,4 @@ CMD ["npm", "run", "start"]
 #CMD [ "/bin/bash" ]
 
 # Expose ports
-EXPOSE 8000
+EXPOSE 3000

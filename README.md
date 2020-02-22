@@ -74,9 +74,11 @@ You can grab OpenWeatherMap API key [here](http://openweathermap.org/)
 
 *The biggest trend of recent times is developing, deploying and hosting your applications in cloud. Knowing cloud -related technologies is essential for modern IT specialists.*
 
-* The weather app is deployed to a cloud hosting service [AWS working link](https://aws.amazon.com/free/) or [Link to push app after all tests have passed](http://weatherapp-env.h8cxvgifqe.us-east-2.elasticbeanstalk.com).
+* The weather app is deployed to a cloud hosting service [AWS working link](http://weatherapp-env.h8cxvgifqe.us-east-2.elasticbeanstalk.com).
 
 ### Travis CI & CircleCI
+
+* [See Travis CI job logs](https://travis-ci.org/Rodcode47/weather_app)
 
 *Automating deployment processes saves a lot of valuable time and reduces chances of costly errors. Infrastructure as Code removes manual steps and allows people to concentrate on core activities.*
 

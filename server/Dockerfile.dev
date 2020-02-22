@@ -4,3 +4,25 @@ COPY ./package.json ./
 RUN npm install
 COPY . .
 CMD ["npm", "run", "dev"]
+
+# Expose ports
+EXPOSE 8000
+
+FROM node:13.7.0
+
+# Create app directory
+WORKDIR /app
+
+# Install app dependencies
+COPY ./package.json .
+RUN npm install
+
+# Bundle app source
+COPY ./ ./
+
+# Start the app
+CMD ["npm", "run", "dev"]
+#CMD [ "/bin/bash" ]
+
+# Expose ports
+EXPOSE 5000
