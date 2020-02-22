@@ -13,13 +13,10 @@
   },
   "homepage": "https://github.com/Rodcode47/weather_app#readme",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "test-lint": "eslint --ignore-pattern \"build\" --ignore-path .gitignore .",
-    "start": "cd server && node index.js",
-    "client": "cd client && npm run start",
-    "dev": "concurrently --kill-others-on-fail \"npm run start\" \"npm run client\"",
+    "start": "node index.js",
+    "dev": "nodemon",
     "precommit": "pretty-quick --staged"
   },
   "dependencies": {

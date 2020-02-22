@@ -4,11 +4,11 @@ FROM node:13.7.0 as builder
 WORKDIR /app
 
 # Install app dependencies
-COPY ./package.json .
+COPY ./package.json ./
 RUN npm install
 
 # Bundle app source
-COPY ./ ./
+COPY . .
 
 # Create client build;
 RUN npm run build

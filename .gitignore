@@ -20,7 +20,7 @@ nginx/Dockerfile.dev
 .serverless/
 
 # dotenv environment variables file
-.env
+#.env
 .env.test
 
 # Optional eslint cache

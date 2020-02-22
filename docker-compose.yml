@@ -7,9 +7,7 @@ services:
     env_file:
       - .env
     volumes:
-      - ./server:/app 
-    ports:
-      - "5000:5000"
+      - ./server:/app
   client:
     build:
       dockerfile: Dockerfile
@@ -24,3 +22,11 @@ services:
       context: ./nginx
     ports:
       - "8080:80"
+  #tests:
+  #  build:
+  #    context: .
+  #    dockerfile: Dockerfile.dev
+  #  volumes:
+  #    - /app/node_modules
+  #    - .:/app
+  #  command: ["npm", "run", "test"]
