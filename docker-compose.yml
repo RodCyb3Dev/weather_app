@@ -2,6 +2,7 @@ version: '3.6'
 services:
   api:
     build:
+      #dockerfile: Dockerfile.dev
       dockerfile: Dockerfile
       context: ./server
     env_file:
@@ -11,6 +12,7 @@ services:
       - ./server:/app
   client:
     build:
+      #dockerfile: Dockerfile.dev
       dockerfile: Dockerfile
       context: ./client
     volumes:
@@ -19,6 +21,7 @@ services:
   nginx:
     restart: always
     build:
+      #dockerfile: Dockerfile.dev
       dockerfile: Dockerfile
       context: ./nginx
     ports:
@@ -27,6 +30,7 @@ services:
   #  build:
   #    context: .
   #    dockerfile: Dockerfile.dev
+  #    dockerfile: Dockerfile
   #  volumes:
   #    - /app/node_modules
   #    - .:/app

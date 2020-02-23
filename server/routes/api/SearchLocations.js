@@ -1,5 +1,5 @@
 const fetch = require('node-fetch');
-const generateWebAppURL = require('server/utils').generateWebAppURL;
+const generateWebAppURL = require('../../utils').generateWebAppURL;
 
 module.exports = (app) => {
 

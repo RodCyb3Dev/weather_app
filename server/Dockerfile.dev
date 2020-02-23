@@ -1,20 +1,10 @@
 FROM node:13.7.0
-WORKDIR /app
-COPY ./package.json ./
-RUN npm install
-COPY . .
-CMD ["npm", "run", "dev"]
-
-# Expose ports
-EXPOSE 8000
-
-FROM node:13.7.0
 
 # Create app directory
 WORKDIR /app
 
 # Install app dependencies
-COPY ./package.json .
+COPY ./package.json ./
 RUN npm install
 
 # Bundle app source

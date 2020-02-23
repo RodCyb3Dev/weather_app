@@ -4,14 +4,14 @@ FROM node:13.7.0
 WORKDIR /app
 
 # Install app dependencies
-COPY ./package.json .
+COPY ./package.json ./
 RUN npm install
 
 # Bundle app source
 COPY ./ ./
 
 # Create client build;
-RUN npm run build
+#RUN npm run build
 
 # Start the app
 CMD ["npm", "run", "start"]

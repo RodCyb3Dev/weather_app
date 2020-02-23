@@ -48,8 +48,8 @@
   },
   "_moduleAliases": {
     "root": ".",
-    "routes": "./server/routes",
-    "server": "./server"
+    "routes": "./routes",
+    "server": "./"
   },
   "optionalDependencies": {
     "fsevents": "^2.1.2"

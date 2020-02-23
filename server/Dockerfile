@@ -10,9 +10,6 @@ RUN npm install && npm i fsevents@latest -f --save-optional
 # Bundle app source
 COPY ./ ./
 
-# Create client build;
-RUN npm run build
-
 # Start the app
 CMD ["npm", "run", "start"]
 #CMD [ "/bin/bash" ]
