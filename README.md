@@ -40,6 +40,10 @@ build:
     dockerfile: Dockerfile # uncomment run the docker locally
 ```
 
+* run `docker-compose up --build` This will build the images and start the containers
+
+Or
+
 1. **cd server** dir and run `docker build -t weatherapp_backend . && docker run --rm -i -p 9000:9000 --name weatherapp_backend -t weatherapp_backend` Or `docker build -t weather-app-backend .` and then `docker run weatherapp_backend`
 
 2. **cd client** dir then run `docker build -t weatherapp_frontend . && docker run --rm -i --name weatherapp_frontend -t weatherapp_frontend`
