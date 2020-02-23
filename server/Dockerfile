@@ -4,11 +4,12 @@ FROM node:13.7.0
 WORKDIR /app
 
 # Install app dependencies
-COPY ./package.json .
+COPY ./package.json ./
+
 RUN npm install && npm i fsevents@latest -f --save-optional
 
 # Bundle app source
-COPY ./ ./
+COPY . .
 
 # Start the app
 CMD ["npm", "run", "start"]

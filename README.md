@@ -17,15 +17,34 @@ Luckily we now have [docker compose](https://docs.docker.com/compose/) saving us
 * Make changes, commit them, and push them in your own repository.
 * Send us the url where to find the code.
 
+#### Run the app locally
+
+1. **cd server** dir and run `npm i && npm run dev`
+2. **cd client** dir then run `npm i && npm start`
+
 ## Exercises
 
-Here are some things in different categories that you can do to make the app better. Before starting you need to get yourself an API key to make queries in the [openweathermap](http://openweathermap.org/). You can run the app locally **cd client** in dir then run `npm i && npm start` and the in the root dir run `npm i && npm run dev`.
+Here are some things in different categories that you can do to make the app better. Before starting you need to get yourself an API key to make queries in the [openweathermap](http://openweathermap.org/).
 
 ### Docker
 
 *Docker containers are central to any modern development initiative. By knowing how to set up your application into containers and make them interact with each other, you have learned a highly useful skill.*
 
-* Add **Dockerfile**'s in the *frontend* and the *backend* directories to run them virtually on any environment having [docker](https://www.docker.com/) installed. It should work by saying e.g. `docker build -t weatherapp_backend . && docker run --rm -i -p 9000:9000 --name weatherapp_backend -t weatherapp_backend`. If it doesn't, remember to check your api key first.
+* Add **Dockerfile**'s in the *frontend* and the *backend* directories to run them virtually on any environment having [docker](https://www.docker.com/) installed. It should work by saying e.g.
++
+* In the docker-compose.yml file:
+
+```json
+build:
+    #dockerfile: Dockerfile.dev # Uncomment run the docker locally
+    dockerfile: Dockerfile # uncomment run the docker locally
+```
+
+1. **cd server** dir and run `docker build -t weatherapp_backend . && docker run --rm -i -p 9000:9000 --name weatherapp_backend -t weatherapp_backend` Or `docker build -t weather-app-backend .` and then `docker run weatherapp_backend`
+
+2. **cd client** dir then run `docker build -t weatherapp_frontend . && docker run --rm -i --name weatherapp_frontend -t weatherapp_frontend`
+
+. If it doesn't, remember to check your api key first.
 
 * Add a **docker-compose.yml** -file connecting the frontend and the backend, enabling running the app in a connected set of containers.
 

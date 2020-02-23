@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const port = 5000;
+const port = 9000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -11,7 +11,7 @@ app.use(cors());
 require('./routes')(app);
 
 app.get('/', (req, res) => {
-  res.send('PORT 5000');
+  res.send('PORT 9000');
 });
 
 app.listen(port, (err) => {

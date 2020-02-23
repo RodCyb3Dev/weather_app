@@ -15,5 +15,5 @@ module.exports = {
     zipcode: 'zip',
   },
 
-  APIkey: process.env.APPID || '0839abe5cdaa810229327c000cba070d',
+  APIkey: process.env.APPID || '0839abe5cdaa810229327c000cba070d', // This api-key is only valid for 7 days.
 };

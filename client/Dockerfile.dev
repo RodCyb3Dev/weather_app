@@ -8,13 +8,13 @@ COPY ./package.json ./
 RUN npm install
 
 # Bundle app source
-COPY ./ ./
+COPY . .
 
 # Create client build;
 #RUN npm run build
 
 # Start the app
-CMD ["npm", "run", "start"]
+CMD ["npm", "start"]
 #CMD [ "/bin/bash" ]
 
 # Expose ports

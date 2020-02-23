@@ -31,15 +31,13 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "set PORT=8000 && react-scripts start",
+    "build": "set PORT=8000 && react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "precommit": "pretty-quick --staged"
   },
-  "proxy": "http://localhost:5000/",
+  "proxy": "http://localhost:9000/",
   "optionalDependencies": {
     "fsevents": "^2.1.2"
   },
