@@ -27,7 +27,7 @@ deploy:
   app: "weatherapp"
   env: "Weatherapp-env"
   bucket_name: "elasticbeanstalk-us-east-2-775267258898"
-  bucket_path: "sää-app"
+  bucket_path: "weatherapp"
   on:
     branch: master
   access_key_id:
