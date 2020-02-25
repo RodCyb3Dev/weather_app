@@ -1,8 +1,7 @@
 FROM node:13.7.0
 
 # Create app directory
-RUN mkdir -p /app
-WORKDIR /app
+WORKDIR "/app"
 
 # Install app dependencies
 COPY ./package.json ./

@@ -2,7 +2,7 @@ FROM node:13.7.0
 
 # Create app directory
 RUN mkdir -p /app
-WORKDIR /app
+WORKDIR "/app"
 
 # Install app dependencies
 COPY ./package.json ./
@@ -10,7 +10,5 @@ RUN npm install
 
 # Bundle app source
 COPY . .
-
-#EXPOSE 5000
 
 CMD ["npm", "run", "dev"]

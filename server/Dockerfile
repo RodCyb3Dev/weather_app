@@ -1,4 +1,4 @@
-FROM node:13.7.0
+FROM node:alpine
 
 # Create app directory
 WORKDIR '/app'
@@ -11,9 +11,3 @@ RUN npm install
 COPY . .
 # Run backend build;
 CMD ["npm", "run", "start"]
-
-FROM nginx
-# Expose ports
-EXPOSE 3000
-COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
-COPY --from=builder /app/build /usr/share/nginx/html

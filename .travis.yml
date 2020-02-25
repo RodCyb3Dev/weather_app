@@ -1,7 +1,9 @@
+#language: node_js
+#node_js:
+#  - 13.7.0
+language: generic
 sudo: required
-language: node_js
-node_js:
-  - 13.7.0
+
 services:
   - docker
 before_install:

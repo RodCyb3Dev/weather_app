@@ -1,7 +1,7 @@
-FROM node:13.7.0 as builder
+FROM node:alpine as builder
 
 # Create app directory
-WORKDIR '/app'
+WORKDIR "/app"
 
 # Install app dependencies
 COPY ./package.json ./

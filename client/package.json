@@ -37,7 +37,6 @@
     "eject": "react-scripts eject",
     "precommit": "pretty-quick --staged"
   },
-  "proxy": "http://localhost:9000/",
   "optionalDependencies": {
     "fsevents": "^2.1.2"
   },
