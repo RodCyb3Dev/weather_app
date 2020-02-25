@@ -1,15 +1,25 @@
 version: '3.6'
 services:
+  nginx:
+    restart: always
+    build:
+      #dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
+      context: ./nginx
+    ports:
+      - '3050:80'
   api:
     build:
       #dockerfile: Dockerfile.dev
       dockerfile: Dockerfile
       context: ./server
-    env_file:
-      - .env
     volumes:
       - /app/node_modules
       - ./server:/app
+    environment:
+      - APPID=0839abe5cdaa810229327c000cba070d
+      - MAP_ENDPOINT=http://api.openweathermap.org/data/2.5
+      - TARGET_CITY=Helsinki
   client:
     build:
       #dockerfile: Dockerfile.dev
@@ -18,14 +28,6 @@ services:
     volumes:
       - /app/node_modules
       - ./client:/app 
-  nginx:
-    restart: always
-    build:
-      #dockerfile: Dockerfile.dev
-      dockerfile: Dockerfile
-      context: ./nginx
-    ports:
-      - "8000:8000"
   #tests:
   #  build:
   #    context: .

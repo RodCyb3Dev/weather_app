@@ -1,18 +1,16 @@
 FROM node:13.7.0
 
 # Create app directory
+RUN mkdir -p /app
 WORKDIR /app
 
 # Install app dependencies
 COPY ./package.json ./
-RUN npm install && npm i fsevents@latest -f --save-optional
+RUN npm install
 
 # Bundle app source
-COPY ./ ./
+COPY . .
 
-# Start the app
+#EXPOSE 5000
+
 CMD ["npm", "run", "dev"]
-#CMD [ "/bin/bash" ]
-
-# Expose ports
-EXPOSE 5000

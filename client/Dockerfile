@@ -1,11 +1,11 @@
 FROM node:13.7.0 as builder
 
 # Create app directory
-WORKDIR /app
+WORKDIR '/app'
 
 # Install app dependencies
 COPY ./package.json ./
-RUN npm install --production
+RUN npm install
 
 # Bundle app source
 COPY . .
@@ -15,6 +15,7 @@ RUN npm run build
 
 FROM nginx
 # Expose ports
-EXPOSE 3000
+EXPOSE 8000
 COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
+#COPY --from=builder /nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=builder /app/build /usr/share/nginx/html

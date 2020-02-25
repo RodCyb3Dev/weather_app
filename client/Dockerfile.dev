@@ -1,6 +1,7 @@
 FROM node:13.7.0
 
 # Create app directory
+RUN mkdir -p /app
 WORKDIR /app
 
 # Install app dependencies
@@ -10,12 +11,4 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-# Create client build;
-#RUN npm run build
-
-# Start the app
-CMD ["npm", "start"]
-#CMD [ "/bin/bash" ]
-
-# Expose ports
-EXPOSE 3000
+CMD ["npm", "run", "start"]
