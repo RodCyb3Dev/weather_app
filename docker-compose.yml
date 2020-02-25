@@ -1,17 +1,9 @@
 version: '3.6'
 services:
-  nginx:
-    restart: always
-    build:
-      #dockerfile: Dockerfile.dev
-      dockerfile: Dockerfile
-      context: ./nginx
-    ports:
-      - '8080:80'
   api:
     build:
-      #dockerfile: Dockerfile.dev
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
+      #dockerfile: Dockerfile
       context: ./server
     volumes:
       - /app/node_modules
@@ -22,12 +14,20 @@ services:
       - TARGET_CITY=Helsinki
   client:
     build:
-      #dockerfile: Dockerfile.dev
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
+      #dockerfile: Dockerfile
       context: ./client
     volumes:
       - /app/node_modules
-      - ./client:/app 
+      - ./client:/app
+  nginx:
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      #dockerfile: Dockerfile
+      context: ./nginx
+    ports:
+      - '8080:80'
   #tests:
   #  build:
   #    context: .

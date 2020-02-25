@@ -44,21 +44,21 @@ build:
 
 Or
 
-1. **cd server** dir and run `docker build -t weatherapp_backend . && docker run --rm -i -p 9000:9000 --name weatherapp_backend -t weatherapp_backend` Or `docker build -t weather-app-backend .` and then `docker run weatherapp_backend`
+1. **cd server** dir and run `docker build -t weatherapp_backend . && docker run --rm -i -p 9000:9000 --name weatherapp_backend -t weatherapp_backend` Or `docker build -t weather_app_backend .` and then `docker run weatherapp_backend`
 
 2. **cd client** dir then run `docker build -t weatherapp_frontend . && docker run --rm -i --name weatherapp_frontend -t weatherapp_frontend`
 
-. If it doesn't, remember to check your api key first.
+* If it doesn't, remember to check your api key first.
 
 * Add a **docker-compose.yml** -file connecting the frontend and the backend, enabling running the app in a connected set of containers.
 
 * The developers are still keen to run the app and its pipeline on their own computers. Share the development files for the container by using volumes, and make sure the containers are started with a command enabling hot reload.
 
 ### Weatherapp - Dockerized
-Final result - uses Docker
+* Final result - uses Docker-compose
 
 1. Make sure you have docker installed and running on your computer
-2. Run `docker-compose up` ( you may have to run `docker-compose up --build` for the first setup phase)
+2. Run `docker-compose up` ( To rebuild this image you must use `docker-compose build` or `docker-compose up --build` for the first setup phase).
 3. You must add your own API key in the `docker-compose.yml` file under environment to connect to OpenWeatherMap API.
 4. You will also need to update Line 9 in backend/src/index.js to your client app port (i.e. 3001)
 
@@ -73,7 +73,9 @@ Run `docker-compose exec <container name> bash`
 
 You can grab OpenWeatherMap API key [here](http://openweathermap.org/)
 
-### Node Express and React development *The app has been re-designed.
+### Node Express and React development 
+
+* The app has been re-designed.
 
 *Node and React applications are highly popular technologies. Understanding them will give you an advantage in front- and back-end development projects.*
 
@@ -105,18 +107,4 @@ You can grab OpenWeatherMap API key [here](http://openweathermap.org/)
 
 *Automating deployment processes saves a lot of valuable time and reduces chances of costly errors. Infrastructure as Code removes manual steps and allows people to concentrate on core activities.*
 
-* I used [Travis CI](https://travis-ci.org) that would only deploy once all the checks have passed. It will run docker-compose up --build and also create a build folder for the frontend.
-
-# robofriends-ci
-Continuous Integration for weatherapp with CircleCI
-
-…or create a new repository on the command line
-echo "# weatherapp-dockerized" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git remote add origin git@github.com:Rodcode47/weatherapp-dockerized.git
-git push -u origin master
-…or push an existing repository from the command line
-git remote add origin git@github.com:Rodcode47/weatherapp-dockerized.git
-git push -u origin master
+* I used [Travis CI](https://travis-ci.org) pull the master branch from github, **Travis CI** will only push the build prod versions of all projects to **docker hub** once all the checks have passed. Then **docker hub** will tell **AWS** to update. It will run docker-compose up --build and also create a build folder for the frontend.
